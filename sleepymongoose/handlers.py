@@ -17,8 +17,11 @@ class MongorestHandler(tornado.web.RequestHandler):
     def initialize(self, xorigin):
 
         self.set_header('Access-Control-Allow-Origin', xorigin)
+        self.set_header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS')
         self.set_header('Content-Type', 'application/json')
 
+    def options(self, db, collection):
+        pass
 
     def get(self, db, collection):
 
